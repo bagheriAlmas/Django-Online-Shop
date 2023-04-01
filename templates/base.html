@@ -1,25 +1,66 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>
-        {% block title %}
-            new app
-        {% endblock %}
-    </title>
-</head>
-<body>
-<header>
-    {% if user.is_authenticated %}
-        Hi {{ user }}
-        <a href="{% url 'logout' %}">Log Out</a>
-    {% else %}
-        <a href="{% url 'login' %}">Login</a>
-        <a href="{% url 'register' %}">Register</a>
-    {% endif %}
-</header>
-{% block content %}
 
-{% endblock %}
+<head>
+    <title>Zay Shop eCommerce HTML CSS Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="{% static 'img/apple-icon.png' %}">
+    <link rel="shortcut icon" type="image/x-icon" href={% static 'img/favicon.ico' %}>
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/templatemo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
+    <!--
+
+    TemplateMo 559 Zay Shop
+
+    https://templatemo.com/tm-559-zay-shop
+
+    -->
+</head>
+
+<body>
+
+
+<!-- Header -->
+{% include 'partials/_header.html' %}
+<!-- Close Header -->
+
+
+<!-- Start Banner Hero -->
+{% include 'partials/_banner.html' %}
+<!-- End Banner Hero -->
+
+
+<!-- Start Categories of The Month -->
+{% include 'partials/_categories-of-month.html' %}
+<!-- End Categories of The Month -->
+
+
+<!-- Start Featured Product -->
+{% include 'partials/_feature-product.html' %}
+<!-- End Featured Product -->
+
+
+<!-- Start Footer -->
+{% include 'partials/_footer.html' %}
+<!-- End Footer -->
+
+<!-- Start Script -->
+<script src="{% static 'js/jquery-1.11.0.min.js' %}"></script>
+<script src="{% static 'js/jquery-migrate-1.2.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/templatemo.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+<!-- End Script -->
 </body>
+
 </html>

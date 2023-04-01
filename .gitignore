@@ -2,3 +2,7 @@ venv/
 .idea/
 *.pyc
 *./__pycache__/
+media/
+db.sqlite3
+OnlineShop/local_settings.py
+migrations/

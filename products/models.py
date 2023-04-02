@@ -11,6 +11,8 @@ class Size(models.Model):
 class Category(models.Model):
     parent = models.ForeignKey('self', blank=True, null=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
+    image = models.ImageField(upload_to='products/categories', default='category_default.png')
+    highlight = models.BooleanField(default=False)
     is_enable = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
 
@@ -50,7 +52,6 @@ class Product(models.Model):
     price = models.FloatField()
     sizes = models.ManyToManyField(Size)
 
-
     def __str__(self):
         return self.name + " -> " + self.brand
 
@@ -76,6 +77,7 @@ class Banner(models.Model):
     subtitle = models.CharField(max_length=100)
     description = models.CharField(max_length=300)
     image = models.ImageField(upload_to='products/banners/')
+    is_enabled = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title

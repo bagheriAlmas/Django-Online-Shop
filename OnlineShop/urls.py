@@ -8,6 +8,8 @@ from OnlineShop import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
 
+    path('',include('products.urls')),
+
     path('accounts/', include('users.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('', TemplateView.as_view(template_name='pages/home.html'), name='home')

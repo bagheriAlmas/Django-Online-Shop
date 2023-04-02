@@ -35,20 +35,18 @@
 <!-- Close Header -->
 
 
-<!-- Start Banner Hero -->
-{% include 'partials/_banner.html' %}
-<!-- End Banner Hero -->
 
+{#<!-- Start Categories of The Month -->#}
+{#{% include 'partials/_categories-of-month.html' %}#}
+{#<!-- End Categories of The Month -->#}
+{##}
+{##}
+{#<!-- Start Featured Product -->#}
+{#{% include 'partials/_feature-product.html' %}#}
+{#<!-- End Featured Product -->#}
+{% block content %}
 
-<!-- Start Categories of The Month -->
-{% include 'partials/_categories-of-month.html' %}
-<!-- End Categories of The Month -->
-
-
-<!-- Start Featured Product -->
-{% include 'partials/_feature-product.html' %}
-<!-- End Featured Product -->
-
+{% endblock %}
 
 <!-- Start Footer -->
 {% include 'partials/_footer.html' %}

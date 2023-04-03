@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.defaultfilters import slugify
 
 
 class Size(models.Model):
@@ -14,6 +15,7 @@ class Category(models.Model):
     image = models.ImageField(upload_to='products/categories', default='category_default.png')
     highlight = models.BooleanField(default=False)
     is_enable = models.BooleanField(default=True)
+    slug = models.SlugField(max_length=100, unique=True, default="slug", editable=False)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -22,14 +24,23 @@ class Category(models.Model):
         else:
             return self.title
 
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.parent.title + "-" + self.title)
+        super(Category, self).save(*args, **kwargs)
+
 
 class Specification(models.Model):
     title = models.CharField(max_length=50)
     is_enable = models.BooleanField(default=True)
+    slug = models.SlugField(max_length=100, unique=True, default="slug", editable=False)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Specification, self).save(*args, **kwargs)
 
 
 class Product(models.Model):
@@ -51,7 +62,8 @@ class Product(models.Model):
     featured = models.BooleanField(default=False)
     image = models.ImageField(upload_to="")
     price = models.FloatField()
-    sizes = models.ManyToManyField(Size,blank=True)
+    sizes = models.ManyToManyField(Size, blank=True)
+    slug = models.SlugField(max_length=200, unique=True, default="slug", editable=False)
 
     def __str__(self):
         return self.name + " -> " + self.brand
@@ -62,7 +74,8 @@ class Product(models.Model):
 
     def save(self, *args, **kwargs):
         self.image.upload_to = self.image_upload_path
-        super().save(*args, **kwargs)
+        self.slug = slugify(self.name)
+        super(Product, self).save(*args, **kwargs)
 
 
 class File(models.Model):

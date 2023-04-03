@@ -87,7 +87,7 @@
             {% for category in categories %}
                 <div class="col-12 col-md-4 p-5 mt-3">
                     <a href="#"><img src="{{ category.image.url }}"
-                                     class="rounded-circle img-fluid border"></a>
+                                     class="rounded-circle img-fluid border" alt="{{ category.title }}"></a>
                     <h5 class="text-center mt-3 mb-3">{{ category.title }}</h5>
                     <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
                 </div>
@@ -113,7 +113,7 @@
                 {% for product in featured %}
                     <div class="col-12 col-md-4 mb-4">
                         <div class="card h-100">
-                            <a href="shop-single.html">
+                            <a href="{% url 'product_detail' product.slug  %}">
                                 <img src="{{ product.image.url }}" class="card-img-top" alt="...">
                             </a>
                             <div class="card-body">
@@ -127,7 +127,7 @@
                                     </li>
                                     <li class="text-muted text-right">${{ product.price }}</li>
                                 </ul>
-                                <a href="shop-single.html" class="h2 text-decoration-none text-dark">{{ product.name }}</a>
+                                <a href="{% url 'product_detail' product.slug  %}" class="h2 text-decoration-none text-dark">{{ product.name }}</a>
                                 <p class="card-text">
                                     {{ product.description|truncatewords:15 }}
                                 </p>

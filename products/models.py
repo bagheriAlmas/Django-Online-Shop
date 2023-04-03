@@ -25,7 +25,11 @@ class Category(models.Model):
             return self.title
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.parent.title + "-" + self.title)
+        if self.parent:
+            self.slug = slugify(self.parent.title + "-" + self.title)
+        else:
+            self.slug = slugify(self.title)
+
         super(Category, self).save(*args, **kwargs)
 
 

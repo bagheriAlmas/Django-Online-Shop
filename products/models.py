@@ -48,9 +48,10 @@ class Product(models.Model):
     specification = models.ManyToManyField(Specification)
     rate = models.CharField(max_length=5, choices=PRODUCT_RATE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    featured = models.BooleanField(default=False)
     image = models.ImageField(upload_to="")
     price = models.FloatField()
-    sizes = models.ManyToManyField(Size)
+    sizes = models.ManyToManyField(Size,blank=True)
 
     def __str__(self):
         return self.name + " -> " + self.brand

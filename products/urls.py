@@ -9,6 +9,4 @@ urlpatterns = [
     path('product/<slug:slug>/', product_detail_view, name='product_detail'),
     path('about/', lambda request: render(request, 'pages/about.html'), name='about-us'),
     path('shop/', lambda request: render(request, 'pages/shop.html'), name='shop'),
-    path('contact/', lambda request: render(request, 'pages/contact.html'), name='contact-us'),
-
 ]

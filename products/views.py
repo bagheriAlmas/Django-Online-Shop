@@ -23,3 +23,13 @@ def product_detail_view(request, slug):
         'related_products': related_products,
     }
     return render(request, 'pages/product_detail.html', context)
+
+
+def category_list_view(request):
+    categories = Category.objects.all()
+    products = Product.objects.all()
+    context = {
+        'categories': categories,
+        'products': products,
+    }
+    return render(request, 'pages/shop.html', context)

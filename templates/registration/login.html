@@ -15,7 +15,9 @@
             <input type="password" placeholder="password" name="password"/>
         </label>
         <button type="submit">login</button>
-      <p class="message">Not registered? <a href="{% url 'register' %}">Create an account</a></p>
+        <hr>
+      <p class="message ">Not registered yet? <a href="{% url 'register' %}">Create an account</a></p>
+      <p class="message" style="font-size: 8pt">Forget Password? <a href="{% url 'register' %}">Password Recovery</a></p>
     </form>
   </div>
 </div>

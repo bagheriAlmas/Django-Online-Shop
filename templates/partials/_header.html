@@ -59,7 +59,8 @@
             <div class="navbar align-self-center d-flex">
                 <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
                     <div class="input-group">
-                        <label for="inputMobileSearch"></label><input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                        <label for="inputMobileSearch"></label><input type="text" class="form-control"
+                                                                      id="inputMobileSearch" placeholder="Search ...">
                         <div class="input-group-text">
                             <i class="fa fa-fw fa-search"></i>
                         </div>
@@ -73,9 +74,11 @@
                     <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                     <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
                 </a>
-                <a class="nav-icon position-relative text-decoration-none" href="#">
+                <a class="nav-icon position-relative text-decoration-none" href="{% url 'user_profile' %}">
                     <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                    <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
+                    {% if request.user.is_authenticated %}
+                        <span class=" badge rounded-pill bg-light text-dark">{{ request.user }}</span>
+                    {% endif %}
                 </a>
             </div>
         </div>
@@ -93,7 +96,8 @@
         </div>
         <form action="" method="get" class="modal-content modal-body border-0 p-0">
             <div class="input-group mb-2">
-                <label for="inputModalSearch"></label><input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                <label for="inputModalSearch"></label><input type="text" class="form-control" id="inputModalSearch"
+                                                             name="q" placeholder="Search ...">
                 <button type="submit" class="input-group-text bg-success text-light">
                     <i class="fa fa-fw fa-search text-white"></i>
                 </button>

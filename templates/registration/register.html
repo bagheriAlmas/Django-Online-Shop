@@ -1,13 +1,26 @@
 {% extends 'base.html' %}
-
-{% block title %}
-    Register
-{% endblock %}
+{% load static %}
 
 {% block content %}
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Register</button>
+  <link rel="stylesheet" href="{% static 'css/registration/style.css' %}">
+
+<div class="login-page">
+  <div class="form">
+     <form class="login-form" method="post">
+         {% csrf_token %}
+      <input type="text" placeholder="username" name="username"/>
+      <input type="password" placeholder="password" name="password1"/>
+      <input type="password" placeholder="password" name="password2"/>
+      <input type="email" placeholder="email" name="email"/>
+      <button>Create Account</button>
+      <p class="message">Already registered? <a href="{% url 'login' %}">Sign In</a></p>
     </form>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 {% endblock %}

@@ -16,3 +16,8 @@ class UserRegisterView(CreateView):
 def user_detail_view(request):
     user = request.user
     return render(request, 'pages/user_profile.html', {'user': user})
+
+
+def user_update_view(request):
+    user = request.user
+    return render(request, 'pages/user_profile_edit.html', {'user': user})

@@ -25,7 +25,7 @@
     <div class="container py-5">
         <div class="row py-5">
             <form class="col-md-9 m-auto" method="post" role="form">
-up                {% csrf_token %}
+                up {% csrf_token %}
                 <div class="row">
                     <div class="form-group col-md-6 mb-3">
                         <label for="inputname">Name</label>
@@ -37,14 +37,14 @@ up                {% csrf_token %}
                         <label for="inputemail">Email</label>
                         <label for="email"></label>
                         <input type="email" class="form-control mt-1" id="email" name="email"
-                                                          placeholder="Email">
+                               placeholder="Email">
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="inputsubject">Subject</label>
                     <label for="subject"></label>
                     <input type="text" class="form-control mt-1" id="subject"
-                                                        name="subject" placeholder="Subject">
+                           name="subject" placeholder="Subject">
                 </div>
                 <div class="mb-3">
                     <label for="inputmessage">Message</label>
